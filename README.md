@@ -8,6 +8,33 @@ Segmentations are performed using convolutional neural networks (CNNs), i.e., de
 
 In Slicer, go to `Edit -> Application Settings -> Modules` and add the cloned/downloaded folder to the `Additional module paths`. When prompted, restart Slicer.
 
+
+# What Does This Extension Do?
+
+This extension takes **NIfTI** (Neuroimaging Informatics Technology Initiative) format MRI or similar medical imaging files and processes them by dividing the image into 275 distinct anatomical regions. Each region is then labeled with a corresponding name. Additionally, a CSV file is generated that lists the volumes of these regions.
+
+### Process Steps
+
+1. **Loading the NIfTI File**: The extension first takes the NIfTI file provided by the user and performs any necessary preprocessing steps.
+
+2. **Segmentation into Regions**: The NIfTI image is segmented into 275 different regions of the brain. These regions correspond to anatomical areas commonly used in neuroimaging research and medical diagnostics.
+
+3. **Labeling**: Each region is labeled according to a standard or reference atlas. These labels help identify the functional or structural areas of the brain, making it easier to interpret the data.
+
+4. **Volume Calculation**: The volume of each region is calculated. This volume represents the physical space occupied by the region and is often used in neuroanatomical studies and assessments.
+
+5. **CSV File Creation**: A **CSV file** is created containing the name and volume of each region. This file provides a structured format for users to easily analyze the volumes of the brain regions.
+
+### Use Cases
+
+- **Brain Mapping and Analysis**: The segmentation and volume analysis of brain regions are crucial for studying neurological diseases and developmental changes.
+- **Medical and Research Applications**: In neuroscience research, accurate labeling of brain regions and volume measurements are essential for understanding brain structures and functions.
+- **Brain Structure-Function Relationships**: This method can help in understanding how different brain regions are related to specific functions or disorders.
+
+![Region Visualization](Screen_Images/img1.png)
+
+
+
 ## Model Setup
 
 To set up the deep learning models required for brain segmentation, please follow these steps:
