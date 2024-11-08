@@ -57,7 +57,6 @@ def update_segment_names(outputFolder, txt_file_path=txt_path):
             old_name = segment.GetName()
             new_name = segment_names[i] if i < len(segment_names) else f"Segment_{i}"
             segment.SetName(new_name)
-            print(f"Old name: {old_name}, New name: {new_name}")
 
             display_node = segmentation_node.GetDisplayNode()
             if display_node:
