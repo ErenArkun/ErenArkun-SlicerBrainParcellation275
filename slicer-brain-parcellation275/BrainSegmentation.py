@@ -2,7 +2,8 @@ import os
 import numpy as np
 import nibabel as nib
 from nibabel import processing
-import torch
+import PyTorchUtils
+torch = PyTorchUtils.PyTorchUtilsLogic().torch
 import glob
 
 import slicer
