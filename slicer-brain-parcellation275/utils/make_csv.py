@@ -3,7 +3,7 @@ import pandas as pd
 import os
 
 def make_csv(parcellation, save):
-    script_dir = os.path.dirname(os.path.realpath(__file__)) 
+    script_dir = os.path.dirname(os.path.realpath(__file__))
 
     csv_path = os.path.join(script_dir, "..", "level" , "Level5.txt")
     df = (

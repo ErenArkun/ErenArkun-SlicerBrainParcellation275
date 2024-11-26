@@ -54,11 +54,11 @@ class BrainSegmentation(ScriptedLoadableModule):
         self.parent.title = "Brain Segmentation"
         self.parent.categories = ["Segmentation"]
         self.parent.dependencies = []
-        self.parent.contributors = ["Your Name (Your Institution)"] 
+        self.parent.contributors = ["Your Name (Your Institution)"]
         self.parent.helpText = """This module performs brain segmentation."""
         self.parent.acknowledgementText = """This module was developed with the support of XYZ."""
 
-class BrainSegmentationWidget(ScriptedLoadableModuleWidget):  
+class BrainSegmentationWidget(ScriptedLoadableModuleWidget):
     def setup(self):
         ScriptedLoadableModuleWidget.setup(self)
 
@@ -109,7 +109,7 @@ class BrainSegmentationWidget(ScriptedLoadableModuleWidget):
         folderDialog = qt.QFileDialog()
         folderDialog.setFileMode(qt.QFileDialog.Directory)
         folderDialog.setOption(qt.QFileDialog.ShowDirsOnly, True)
-        
+
         if folderDialog.exec_():
             selectedFolder = folderDialog.selectedFiles()
             if selectedFolder:
@@ -132,7 +132,7 @@ class BrainSegmentationWidget(ScriptedLoadableModuleWidget):
             fullPath = os.path.join(self.outputFolder, subfolderPath, selectedNiiFile)
             self.loadVolume(fullPath)
 
-      
+
     def loadVolume(self, inputFile):
         try:
             self.clearPreviousNodes()
@@ -164,7 +164,7 @@ class BrainSegmentationWidget(ScriptedLoadableModuleWidget):
             threeDWidget = layoutManager.threeDWidget(0)
             threeDView = threeDWidget.threeDView()
             threeDView.resetFocalPoint()
-            
+
             print(successMessage)
         else:
             print("DisplayNode not found or 3D view not available.")
@@ -174,7 +174,7 @@ class BrainSegmentationWidget(ScriptedLoadableModuleWidget):
         self.currentVolumeNode = None
         self.currentSegmentationNode = None
 
-    def isSegmentation(self, inputFile):   
+    def isSegmentation(self, inputFile):
         return any(x in inputFile.lower() for x in ["_280", ".seg.nrrd"])
 
 
@@ -185,7 +185,7 @@ class BrainSegmentationWidget(ScriptedLoadableModuleWidget):
             self.outputFolderLabel.setText(f"Selected output folder: {self.outputFolder}")
             self.subfolderComboBox.clear()
             subfolders = [f for f in os.listdir(self.outputFolder) if os.path.isdir(os.path.join(self.outputFolder, f))]
-            
+
             if subfolders:
                 self.subfolderComboBox.addItems(subfolders)
             else:
@@ -209,7 +209,7 @@ class BrainSegmentationWidget(ScriptedLoadableModuleWidget):
                 self.niiFileComboBox.addItems(niiFiles)
             else:
                 self.niiFileComboBox.addItem("No .nii files found")
-    
+
     def updateComboBoxes(self):
         if not self.outputFolder:
             return
@@ -233,14 +233,14 @@ class BrainSegmentationWidget(ScriptedLoadableModuleWidget):
             else:
                 self.niiFileComboBox.addItem("No .nii files found")
 
-    def onApplySegmentation(self):      
+    def onApplySegmentation(self):
         if not self.inputFile or not self.outputFolder:
             slicer.util.errorDisplay("Please select an input folder and output folder.")
             return
 
         logic = BrainSegmentationLogic()
         logic.run(self.inputFile, self.outputFolder)
-    
+
         update_segment_names(self.outputFolder)
         self.updateComboBoxes()
         slicer.util.infoDisplay("Segmentation completed successfully!")
@@ -248,7 +248,7 @@ class BrainSegmentationWidget(ScriptedLoadableModuleWidget):
 class BrainSegmentationLogic:
     def run(self, inputFile, outputFolder):
         print(f"Running segmentation with input: {inputFile} and output: {outputFolder}")
-    
+
 
         print(f"Input file: {inputFile}")
         print(f"Output folder: {outputFolder}")

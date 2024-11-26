@@ -20,7 +20,7 @@ def parcellate(voxel, model, device, mode):
         box = torch.zeros(stack[0], 142, stack[1], stack[2])
 
         for i in range(stack[0]):
-            i += 1 
+            i += 1
 
             image = np.stack([voxel[i - 1], voxel[i], voxel[i + 1]])
 
@@ -42,9 +42,9 @@ def parcellation(voxel, pnet_c, pnet_s, pnet_a, device):
     coronal = voxel.transpose(1, 2, 0)
     sagittal = voxel
     axial = voxel.transpose(2, 1, 0)
-    
+
     out_c = parcellate(coronal, pnet_c, device, "c").permute(1, 3, 0, 2)
-    
+
     torch.cuda.empty_cache()
 
     out_s = parcellate(sagittal, pnet_s, device, "s").permute(1, 0, 2, 3)

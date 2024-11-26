@@ -63,7 +63,7 @@ def update_segment_names(outputFolder, txt_file_path=txt_path):
                 display_node.SetSegmentVisibility(segment_id, True)
             else:
                 print(f"Segment ID: Could not set view for {segment_id}.")
-                
+
             segment_name = segment.GetName()
             visibility = display_node.GetSegmentVisibility(segment_id) if display_node else "Unable to Set Visibility"
             print(f"Segment ID: {segment_id}, Segment Name: {segment_name}, Visibility Status: {visibility}")

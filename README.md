@@ -50,7 +50,7 @@ After completing these steps, the model files will be set up, and you’ll be re
 
 This project uses deep learning models built with **PyTorch**. To perform computations on a GPU, please ensure you have the following dependencies installed:
 
-- **CUDA 11.8** 
+- **CUDA 11.8**
 - **cuDNN 8.9.7**
 
 These libraries are necessary to enable GPU acceleration, which significantly speeds up the segmentation process.
@@ -74,12 +74,12 @@ To enable GPU acceleration using PyTorch in 3D Slicer, you need to install PyTor
 
 Before installing PyTorch, ensure that **CUDA 11.8** and **cuDNN 8.9.7** are properly installed on your system. These libraries are required for GPU acceleration in PyTorch.
 
-- **CUDA 11.8** Installation:  
-  Follow the official installation guide here:  
+- **CUDA 11.8** Installation:
+  Follow the official installation guide here:
   [CUDA 11.8 Installation Guide](https://developer.nvidia.com/cuda-11-8-0-download-archive)
 
-- **cuDNN 8.9.7** Installation:  
-  For **CUDA 11.8**, download the corresponding version of cuDNN here:  
+- **cuDNN 8.9.7** Installation:
+  For **CUDA 11.8**, download the corresponding version of cuDNN here:
   [cuDNN 8.9.7 Installation Guide](https://developer.nvidia.com/rdp/cudnn-archive)
 
 Follow the instructions to set up these libraries on your system.
